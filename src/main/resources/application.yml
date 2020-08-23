@@ -1,0 +1,9 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://112.74.84.42/myblog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: Xkh0716!
