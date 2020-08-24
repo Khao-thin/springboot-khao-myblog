@@ -118,23 +118,27 @@ $('[data-toggle="tooltip"]').tooltip();
  
  
 //无限滚动反翻页
-jQuery.ias({
-	history: false,
-	container : '.content',
-	item: '.excerpt',
-	pagination: '.pagination',
-	next: '.next-page a',
-	trigger: '查看更多',
-	loader: '<div class="pagination-loading"><img src="/Home/images/loading.gif" /></div>',
-	triggerPageThreshold: 5,
-	onRenderComplete: function() {
-		$('.excerpt .thumb').lazyload({
-			placeholder: '/Home/images/occupying.png',
-			threshold: 400
-		});
-		$('.excerpt img').attr('draggable','false');
-		$('.excerpt a').attr('draggable','false');
-	}
+var page = 1;
+$(function(){
+    var ias = jQuery.ias({
+        container : '.content',
+        item : '.post',
+        pagination : '#pagination',
+        next : '.next'
+    });
+    // 加分页查询参数
+    ias.on(	"load", function(e){
+        e.ajaxOptions.data = {page:++page};
+    });
+    // 加载图片
+    ias.extension(new IASSpinnerExtension({
+        src: 'images/loading.gif', // 图片地址
+    }));
+
+    ias.extension(new IASTriggerExtension({
+        text: '查看更多',
+        offset: 5 // 第几页后开始
+    }));
 });
  
 //鼠标滚动超出侧边栏高度绝对定位
@@ -196,12 +200,14 @@ $(window).scroll(function () {
 })();
 
 /*禁止键盘操作*/
+/*
 document.onkeydown=function(event){
 	var e = event || window.event || arguments.callee.caller.arguments[0];
 	if((e.keyCode === 123) || (e.ctrlKey) || (e.ctrlKey) && (e.keyCode === 85)){
 		return false;
 	}
 }; 
+*/
 
 /*文章评论*/
 $(function(){
