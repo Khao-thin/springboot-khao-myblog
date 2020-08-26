@@ -2,7 +2,6 @@ package com.yc.springbootkhaomyblog.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.yc.springbootkhaomyblog.mapper.ArticleMapper;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

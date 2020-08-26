@@ -26,7 +26,7 @@ public class SpringbootKhaoMyblogApplication implements WebMvcConfigurer {
         WebMvcConfigurer.super.addInterceptors(registry);
         //拦截资源
         InterceptorRegistration interceptorRegistration = registry.addInterceptor(new LoginInterceptor());
-        interceptorRegistration.addPathPatterns("/toAddArticle","/addArticle.do");
+        interceptorRegistration.addPathPatterns("/toAddArticle","/addArticle.do","/comment");
     }
 
 }

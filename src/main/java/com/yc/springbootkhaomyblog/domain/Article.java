@@ -6,6 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import java.sql.Timestamp;
 
 public class Article {
+    private Category category;
     private Integer id;
     private String author;
     @NotEmpty
@@ -128,6 +129,14 @@ public class Article {
 
     public void setAgreeCnt(Integer agreeCnt) {
         this.agreeCnt = agreeCnt;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
