@@ -1,15 +1,23 @@
 package com.yc.springbootkhaomyblog.domain;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import java.sql.Timestamp;
 
 public class Article {
     private Integer id;
     private String author;
+    @NotEmpty
     private String title;
+    @NotEmpty
     private String content;
-    private String keywords;
+    private String keyWords;
     private String description;
+    @Min(1)
+    @Max(10)
     private Integer categoryId;
+    @NotEmpty
     private String label;
     private String titleImgs;
     private String status;
@@ -49,12 +57,13 @@ public class Article {
         this.content = content;
     }
 
-    public String getKeywords() {
-        return keywords;
+
+    public String getKeyWords() {
+        return keyWords;
     }
 
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
+    public void setKeyWords(String keyWords) {
+        this.keyWords = keyWords;
     }
 
     public String getDescription() {
@@ -128,7 +137,7 @@ public class Article {
                 ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", keywords='" + keywords + '\'' +
+                ", keywords='" + keyWords + '\'' +
                 ", description='" + description + '\'' +
                 ", categoryId=" + categoryId +
                 ", label='" + label + '\'' +

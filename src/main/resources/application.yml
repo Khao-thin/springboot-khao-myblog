@@ -7,3 +7,9 @@ spring:
     url: jdbc:mysql://112.74.84.42/myblog?useUnicode=true&characterEncoding=utf-8
     username: root
     password: Xkh0716!
+
+logging:
+  level:
+    com:
+      yc:
+        springbootkhaomyblog: debug
